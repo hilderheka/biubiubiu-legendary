@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
+
 {
+    private float hp = 100f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +21,18 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
+            Bullet bullet = other.GetComponent<Bullet>();
+
+            hp -= bullet.atk;
+
+            if(hp <= 0)
+            {
             gameObject.SetActive(false);
             Destroy(gameObject);
-            Destroy(other.gameObject);
+            
+            }
 
 
-            GameObject[] objs = GameObject.FindGameObjectsWithTag("Bullet");
         }
     }
 }
