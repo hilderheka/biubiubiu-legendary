@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         // 找到最近的一個目標 Enemy 的物件
         GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
 
-        float miniDist = 9999;
+        float miniDist = 999999;
         foreach (GameObject enemy in enemys)
         {
             // 計算距離
